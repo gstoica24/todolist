@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+	<body>
+		<section>
+
+
+			{% block content %}
+
+				{% for todos in todos %}
+					<a href="/movie?id={{movie.id}}">
+						<article>
+							<h2>{{ todos.title }}</h2>
+							<h4>{{ todos.completed }}</h4>
+						</article>
+					</a>
+				{% endfor %}
+
+			{% endblock %}
+		</section>
+	</body>
+</html>

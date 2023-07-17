@@ -1,0 +1,11 @@
+{
+    "name": "gstoi/todolist",
+    "autoload": {
+        "psr-4": {
+            "Gstoi\\Todolist\\": "src/"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.6"
+    }
+}
