@@ -4,23 +4,46 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Document</title>
+		<link rel="stylesheet" href="./style/style.css">
 	</head>
 	<body>
 		<section>
 
 
 			{% block content %}
+				<form id="addTaskForm" action="/add-task" method="post">
+					<input type="text" name="title" placeholder="New Task">
+					<fieldset>
+						<legend>Completed or not?</legend>
+						<label for="newTaskStatus">Completed</label>
+						<input type="checkbox" name="completed" id="newTaskStatus">
+					</fieldset>
+					<button type="submit">Add New Task</button>
+				</form>
 
-				{% for todos in todos %}
-					<a href="/movie?id={{movie.id}}">
-						<article>
-							<h2>{{ todos.title }}</h2>
-							<h4>{{ todos.completed }}</h4>
-						</article>
-					</a>
-				{% endfor %}
-
+				<ul id="taskList">
+					{% for todo in todos %}
+						<li>
+							<form action="/modif-task" method="post">
+								<input type="hidden" name="id" value="{{ todo.id }}">
+								<input type="text" name="title" value="{{ todo.title }}">
+								<fieldset>
+									<legend>Completed or not?</legend>
+									<label for="taskStatus{{ todo.id }}">Completed</label>
+									<input type="checkbox" name="completed" id="taskStatus{{ todo.id }}" {% if todo.completed == 1 %} checked {% endif %}>
+								</fieldset>
+								<button type="submit">Modify Task</button>
+							</form>
+							<form action="/delete-task" method="post">
+								<input type="hidden" name="id" value="{{ todo.id }}">
+								<button type="submit">Delete Task</button>
+							</form>
+						</li>
+					{% endfor %}
+				</ul>
 			{% endblock %}
+
 		</section>
 	</body>
+	<script src="./script.js"></script>
 </html>

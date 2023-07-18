@@ -7,11 +7,11 @@ $uri = strtok($_SERVER['REQUEST_URI'], '?');
 $ctrl = new Controlleur();
 if ($uri == "/" || $uri == "/tasks") {
     $ctrl->index();
-} elseif ($uri == "add-task") {
+} elseif ($uri == "/add-task" || $uri == "/add-task/") {
     $ctrl->createNewTask();
-} elseif ($uri == "modif-task") {
+} elseif ($uri == "/modif-task" || $uri == "/modif-task/") {
     $ctrl->modifyTask();
-} elseif ($uri == "delete-task") {
+} elseif ($uri == "/delete-task" || $uri == "/delete-task/") {
     $ctrl->removeTask();
 } else {
     echo "non trouvé";
