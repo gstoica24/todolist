@@ -7,9 +7,8 @@
 		<link rel="stylesheet" href="./style/style.css">
 	</head>
 	<body>
+		<h1>To do list</h1>
 		<section>
-
-
 			{% block content %}
 				<form id="addTaskForm" action="/add-task" method="post">
 					<input type="text" name="title" placeholder="New Task">
@@ -18,31 +17,29 @@
 						<label for="newTaskStatus">Completed</label>
 						<input type="checkbox" name="completed" id="newTaskStatus">
 					</fieldset>
-					<button type="submit">Add New Task</button>
+					<button type="submit">➕</button>
 				</form>
-
 				<ul id="taskList">
 					{% for todo in todos %}
-						<li>
+						<li {% if todo.completed == 1 %} class="completed" {% else %} class="notCompleted" {% endif %}>
 							<form action="/modif-task" method="post">
 								<input type="hidden" name="id" value="{{ todo.id }}">
-								<input type="text" name="title" value="{{ todo.title }}">
+								<textarea name="title" id="id" cols="50" rows="10">{{ todo.title }}</textarea>
 								<fieldset>
 									<legend>Completed or not?</legend>
 									<label for="taskStatus{{ todo.id }}">Completed</label>
 									<input type="checkbox" name="completed" id="taskStatus{{ todo.id }}" {% if todo.completed == 1 %} checked {% endif %}>
 								</fieldset>
-								<button type="submit">Modify Task</button>
+								<button type="submit">🖋️</button>
 							</form>
 							<form action="/delete-task" method="post">
 								<input type="hidden" name="id" value="{{ todo.id }}">
-								<button type="submit">Delete Task</button>
+								<button class="delete-btn" type="submit">🗑️</button>
 							</form>
 						</li>
 					{% endfor %}
 				</ul>
 			{% endblock %}
-
 		</section>
 	</body>
 	<script src="./script.js"></script>

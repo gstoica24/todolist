@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3em;
+  gap: 15px;
+  margin: auto;
+  width: 90%;
+  box-shadow: 0px 10px 15px 7px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  gap: 15px;
+  padding: 1em;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 15px;
+  padding: 1em;
+  list-style: none;
+  width: 100%;
+  margin: auto;
+}
+
+ul li {
+  border-radius: 10px;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+label {
+  color: black;
+  padding: 1em;
+}
+
+.completed {
+  background-color: rgb(0, 204, 0);
+}
+
+.notCompleted {
+  box-shadow: 0px 10px 15px 7px rgba(0, 0, 0, 0.1);
+}
+
+.delete-btn {
+  width: 20%;
+  background-color: red;
+  border-radius: 10px;
+  padding: 0.5em;
+}
+
+.delete-btn:hover {
+  background-color: whitesmoke;
+  box-shadow: 0px 10px 15px 7px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+textarea {
+  border: none;
+  resize: none;
+  text-align: left;
+}
+
+textarea:focus {
+  width: 100%;
+  height: 150px;
+  border: 2px solid red;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  width: 20%;
+  border-radius: 10px;
+  padding: 0.5em;
+}
+
+button:not(.delete-btn):hover {
+  background-color: blue;
+  transition: 0.5s;
+}
+
+legend {
+  width: 100%;
+  color: black;
+  padding: 1em;
+}
